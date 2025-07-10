@@ -50,7 +50,7 @@ The main script that handles fetching, deduplication, citation parsing, and task
 - 🧠 filter_new_ids: Bloom filter + SQL fallback deduplication
 - 🔒 safe_insert_citations: Robust insert with deadlock handling
 - 🏷️ mark_processed: Marks paper as crawled in both Redis and SQL
-- ▶ main(): Main crawl loop with seed support, resume, and batching
+- ▶  main(): Main crawl loop with seed support, resume, and batching
 
 ### ▶ How to Use
 
