@@ -39,32 +39,6 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## ▶ How to Run
-
-### 🔧 Requirements
-
-- PostgreSQL and Redis running locally
-- Semantic Scholar API Key (`API_KEY`) (API key can be left blank for public usage)
-- Python dependencies (pip install -r requirements.txt)
-- Python packages: see `requirements.txt`
-
-### 🚀 Commands
-
-Start a **fresh** crawl with seed IDs:
-```bash
-python crawler.py --fresh <seed_id1> <seed_id2>
-```
-Resume a previously interrupted crawl:
-```bash
-python crawler.py --resume
-```
-Run the **Dashboard** server:
-```bash
-uvicorn dashboard:app --host 0.0.0.0 --port xxxx --reload
-```
-
----
-
 ## 🧪 crawler.py
 
 The main script that handles fetching, deduplication, citation parsing, and task queue management.
@@ -77,6 +51,17 @@ The main script that handles fetching, deduplication, citation parsing, and task
 - safe_insert_citations: Robust insert with deadlock handling
 - mark_processed: Marks paper as crawled in both Redis and SQL
 - main(): Main crawl loop with seed support, resume, and batching
+
+### How to Use
+
+Start a **fresh** crawl with seed IDs:
+```bash
+python crawler.py --fresh <seed_id1> <seed_id2>
+```
+Resume a previously interrupted crawl:
+```bash
+python crawler.py --resume
+```
 
 ---
 
@@ -102,6 +87,13 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 
 - remote_ram_background_updater() – polls RAM usage every 60s
 - speed_background_updater() – updates crawl rate every 15s
+
+### How to Use
+
+Run the **Dashboard** server:
+```bash
+uvicorn dashboard:app --host 0.0.0.0 --port xxxx --reload
+```
 
 ---
 ## 🛑 start_stop_crawler.py
