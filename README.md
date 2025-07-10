@@ -39,20 +39,20 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## 🧪 crawler.py
+## 🕷️ crawler.py
 
 The main script that handles fetching, deduplication, citation parsing, and task queue management.
 
 ### 🧩 Key Components
 
-- send_request: Rate-limited API requests with retry logic
-- fetch_references_paginated: Handles large reference sets (>1000)
-- filter_new_ids: Bloom filter + SQL fallback deduplication
-- safe_insert_citations: Robust insert with deadlock handling
-- mark_processed: Marks paper as crawled in both Redis and SQL
-- main(): Main crawl loop with seed support, resume, and batching
+- ⚡ send_request: Rate-limited API requests with retry logic
+- 📜 fetch_references_paginated: Handles large reference sets (>1000)
+- 🧠 filter_new_ids: Bloom filter + SQL fallback deduplication
+- 🔒 safe_insert_citations: Robust insert with deadlock handling
+- 🏷️ mark_processed: Marks paper as crawled in both Redis and SQL
+- ▶ main(): Main crawl loop with seed support, resume, and batching
 
-### How to Use
+### ▶ How to Use
 
 Start a **fresh** crawl with seed IDs:
 ```bash
@@ -71,8 +71,8 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 
 ### 📡 Endpoints
 
-- GET - HTML Dashboard UI
-- GET /status - Returns crawler metrics as JSON
+- 🌐 GET - HTML Dashboard UI
+- 📈 GET /status - Returns crawler metrics as JSON
   
 ### 📈 Metrics Shown
 
@@ -85,10 +85,10 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 
 ### 🧵 Background Tasks
 
-- remote_ram_background_updater() – polls RAM usage every 60s
-- speed_background_updater() – updates crawl rate every 15s
+- ⏲️ remote_ram_background_updater() – polls RAM usage every 60s
+- ⏲️ speed_background_updater() – updates crawl rate every 15s
 
-### How to Use
+### ▶ How to Use
 
 Run the **Dashboard** server:
 ```bash
@@ -100,7 +100,7 @@ uvicorn dashboard:app --host 0.0.0.0 --port xxxx --reload
 
 This utility script manages the crawler.service systemd unit on multiple remote servers via SSH. It allows you to start or stop the crawler daemon across all instances with a single command.
 
-### 📡 Configuration
+### 🔧 Configuration
 
 The script uses a dictionary (HOST_KEY_MAP) to map server IPs to their corresponding private SSH key files:
 ```
@@ -112,7 +112,7 @@ HOST_KEY_MAP = {
 ```
 Make sure all key files are present and accessible.
   
-### How to Use
+### ▶ How to Use
 
 Start the crawler.service on all configured remote hosts:
 ```
@@ -123,25 +123,25 @@ Stop the crawler.service.
 python start_stop_crawler.py --off
 ```
 
-### Note
+### ⚠️ Note
 
 Remote servers must have:
-- SSH access enabled
-- Python systemd unit defined as crawler.service
+- 🔐 SSH access enabled
+- 🛠️ Python systemd unit defined as crawler.service
 
 Local machine must have:
-- Private SSH key access for each host
-- paramiko installed
+- 🔑 Private SSH key access for each host
+- 📦 paramiko installed
 
 ---
 
 ## 🧾 fetch_author_papers.py
 
 This utility script fetches papers written by specific authors from the Semantic Scholar API. It saves:
-- Detailed metadata in a CSV file (papers_by_authors.csv)
-- Paper IDs only in a plain text file (paper_ids.txt) for seeding the crawler
+- 📝 Detailed metadata in a CSV file (papers_by_authors.csv)
+- 🆔 Paper IDs only in a plain text file (paper_ids.txt) for seeding the crawler
 
-### How to Use
+### ▶ How to Use
 
 Edit the author_ids list in the script to include the authors you are interested in:
 
@@ -153,9 +153,34 @@ author_ids = [
 
 ---
 
+## 🧮 PageRank Computation (HPC_graph_tool.py)
+
+This script computes PageRank scores on the full citation graph using the high-performance graph-tool library, suitable for large-scale academic datasets and HPC environments. It:
+- 🏗️ Builds a directed graph from citation edges
+- 📈 Computes PageRank using graph_tool.pagerank()
+- 🎯 Normalizes scores to sum = 1
+- 🔗 Joins PageRank values with metadata
+
+### Inputs
+
+- `--input`: CSV file containing citation edges with columns: (`citing_id` , `cited_id`)
+- `--metadata`: CSV file with metadata for papers, containing: (`paper_id`, `fields_of_study`)
+- `--output`: Output directory to store logs, results, and graph file
+
+### Outputs
+
+- `pagerank_merged.csv`: PageRank scores merged with paper metadata
+- `graph.graphml`: GraphML file for visualization
+- `pagerank.log`: Execution logs
+
+### ⚠️ Note
+
+- ⚡ This computation was run on a supercomputer using SLURM job scheduling due to the large size of the citation graph (millions of nodes and edges).
+- 🐳 The environment was containerized with Docker, ensuring consistent dependency management and compatibility for graph-tool.
+
 ## 🔌 API & Interfaces
 
-### 📡 Semantic Scholar API
+### 🌐 Semantic Scholar API
 Base URL: https://api.semanticscholar.org/graph/v1
 - GET /paper/{id}/references: For paginated citation lists
 - POST /paper/batch: For batched paper metadata
