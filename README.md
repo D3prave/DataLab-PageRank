@@ -11,7 +11,7 @@ This project implements a scalable academic citation crawler powered by the Sema
 - [How to Run](#-how-to-run)
 - [Crawler Script (`crawler.py`)](#-crawlerpy)
 - [Dashboard Script (`dashboard.py`)](#-dashboardpy)
-- [Remove Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
+- [Remote Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
 - [Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
 - [API & Interfaces](#-api--interfaces)
 - [Technologies Used](#-technologies-used)
@@ -125,7 +125,7 @@ Start the crawler.service on all configured remote hosts:
 ```
 python start_stop_crawler.py --on
 ```
-Stop the crawler.service
+Stop the crawler.service.
 ```
 python start_stop_crawler.py --off
 ```
@@ -151,6 +151,7 @@ This utility script fetches papers written by specific authors from the Semantic
 ### How to Use
 
 Edit the author_ids list in the script to include the authors you are interested in:
+
 ```
 author_ids = [
     "ID1", "ID2", "ID3", ...
@@ -195,6 +196,18 @@ Base URL: https://api.semanticscholar.org/graph/v1
 - **paramiko** (for SSH protocols)
 - **subprocess/sysctl** (macOS memory pressure)
 
+---
+
+## Requirements
+
+- crawler.py: requests, redis, psycopg2, tenacity
+- dashboard.py: fastapi, uvicorn, asyncssh
+- start_stop_crawler.py: paramiko
+- fetch_author_papers.py: requests
+
+```
+pip install -r requirements.txt
+```
 ---
 
 ## 📐 Architecture
