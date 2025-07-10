@@ -1,0 +1,23 @@
+# Core packages
+requests==2.31.0
+redis==5.0.4
+psycopg2-binary==2.9.9
+tenacity==8.2.3
+
+# FastAPI & ASGI Server
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+
+# Async packages
+asyncpg==0.29.0
+asyncssh==2.14.2
+
+# Optional Dev Tools
+black==24.4.2
+isort==5.13.2
+python-dotenv==1.0.1  # If you want to use .env for config
+
+# Note:
+# RedisBloom module must be installed on your Redis server
+# You can install it via RedisStack or follow instructions here:
+# https://oss.redis.com/redisbloom/Quick_Start/
