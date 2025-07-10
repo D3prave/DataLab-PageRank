@@ -31,7 +31,3 @@ python-dotenv        # For environment variable loading from `.env` files
 # RedisBloom Note
 # RedisBloom must be installed on your Redis server (not pip).
 # Either use RedisStack Docker image or follow: https://oss.redis.com/redisbloom/Quick_Start/
-
-# Dependency Management
-# For reproducible builds (Docker/HPC), consider freezing:
-# pip freeze > requirements.lock.txt
