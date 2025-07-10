@@ -6,18 +6,18 @@ This project implements a scalable academic citation crawler powered by the Sema
 
 ## 📚 Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [How to Run](#-how-to-run)
-- [Crawler Script (`crawler.py`)](#-crawlerpy)
-- [Dashboard Script (`dashboard.py`)](#-dashboardpy)
-- [Remote Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
-- [Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
-- [API & Interfaces](#-api--interfaces)
-- [Technologies Used](#-technologies-used)
-- [Requirements](#-requirements)
-- [Architecture](#-architecture)
-- [Project Structure](#-project-structure)
+- [📌 Overview](#-overview)
+- [✨ Features](#-features)
+- [🕷️ Crawler Script (`crawler.py`)](#-crawlerpy)
+- [📊 Dashboard Script (`dashboard.py`)](#-dashboardpy)
+- [🛑 Remote Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
+- [🧾 Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
+- [🧮 PageRank Computation (`HPC_graph_tool.py`)](#-HPC_graph_toolpy)
+- [🔌 API & Interfaces](#-api--interfaces)
+- [🤖 Technologies Used](#-technologies-used)
+- [📝 Requirements](#-requirements)
+- [📐 Architecture](#-architecture)
+- [📁 Project Structure](#-project-structure)
 
 ---
 
@@ -153,7 +153,7 @@ author_ids = [
 
 ---
 
-## 🧮 PageRank Computation (HPC_graph_tool.py)
+## 🧮 HPC_graph_tool.py
 
 This script computes PageRank scores on the full citation graph using the high-performance graph-tool library, suitable for large-scale academic datasets and HPC environments. It:
 - 🏗️ Builds a directed graph from citation edges
