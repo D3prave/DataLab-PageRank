@@ -1,7 +1,3 @@
-<h1 align="center">IN PROGRESS</h1>
-
----
-
 # Academic Citation Crawler & Dashboard
 
 This project implements a scalable academic citation crawler powered by the Semantic Scholar API. It supports efficient deduplication using RedisBloom, structured storage in PostgreSQL, and real-time monitoring with a FastAPI dashboard, including memory stats from remote instances via SSH.
