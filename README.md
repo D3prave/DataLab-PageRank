@@ -15,6 +15,7 @@ This project implements a scalable academic citation crawler powered by the Sema
 - [Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
 - [API & Interfaces](#-api--interfaces)
 - [Technologies Used](#-technologies-used)
+- [Requirements](#-requirements)
 - [Architecture](#-architecture)
 - [Project Structure](#-project-structure)
 
@@ -198,7 +199,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
 
 ---
 
-## Requirements
+## 📝 Requirements
 
 - crawler.py: requests, redis, psycopg2, tenacity
 - dashboard.py: fastapi, uvicorn, asyncssh
