@@ -11,6 +11,7 @@ This project implements a scalable academic citation crawler powered by the Sema
 - [How to Run](#-how-to-run)
 - [Crawler Script (`crawler.py`)](#-crawlerpy)
 - [Dashboard Script (`dashboard.py`)](#-dashboardpy)
+- [Remove Service Controller Script (`start_stop_crawler.py`)](#-startstopcrawlerpy)
 - [API & Interfaces](#-api--interfaces)
 - [Technologies Used](#-technologies-used)
 - [Architecture](#-architecture)
@@ -101,6 +102,44 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 - speed_background_updater() – updates crawl rate every 15s
 
 ---
+## 🔌 start_stop_crawler.py
+
+This utility script manages the crawler.service systemd unit on multiple remote servers via SSH. It allows you to start or stop the crawler daemon across all instances with a single command.
+
+### 📡 Configuration
+
+The script uses a dictionary (HOST_KEY_MAP) to map server IPs to their corresponding private SSH key files:
+```
+HOST_KEY_MAP = {
+    "IP": "KEY",
+    "IP": "KEY",
+    "IP":   "KEY",
+}
+```
+Make sure all key files are present and accessible.
+  
+### How to Use
+
+Start the crawler.service on all configured remote hosts:
+```
+python start_stop_crawler.py --on
+```
+Stop the crawler.service
+```
+python start_stop_crawler.py --off
+```
+
+### Note
+
+Remote servers must have:
+- SSH access enabled
+- Python systemd unit defined as crawler.service
+
+Local machine must have:
+- Private SSH key access for each host
+- paramiko installed
+
+---
 
 ## 🔌 API & Interfaces
 
@@ -135,6 +174,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
 - **Semantic Scholar API**
 - **Tenacity** (for robust retry logic)
 - **Uvicorn** (for serving dashboard)
+- **paramiko** (for SSH protocols)
 - **subprocess/sysctl** (macOS memory pressure)
 
 ---
@@ -186,6 +226,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
 .
 ├── crawler.py
 ├── dashboard.py
+├── start_stop_crawler.py
 └── requirements.txt
 ```
 
