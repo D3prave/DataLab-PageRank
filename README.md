@@ -8,11 +8,11 @@ This project implements a scalable academic citation crawler powered by the Sema
 
 - [📌 Overview](#-overview)
 - [✨ Features](#-features)
-- [🕷️ Crawler Script (`crawler.py`)](#-crawlerpy)
+- [🕷 Crawler Script (`crawler.py`)](#-crawlerpy)
 - [📊 Dashboard Script (`dashboard.py`)](#-dashboardpy)
 - [🛑 Remote Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
 - [🧾 Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
-- [🧮 PageRank Computation (`HPC_graph_tool.py`)](#-HPC_graph_toolpy)
+- [🧮 PageRank Computation (`HPC_graph_tool.py`)](#-hpc_graph_toolpy)
 - [🔌 API & Interfaces](#-api--interfaces)
 - [🤖 Technologies Used](#-technologies-used)
 - [📝 Requirements](#-requirements)
@@ -39,7 +39,7 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## 🕷️ crawler.py
+## 🕷 crawler.py
 
 The main script that handles fetching, deduplication, citation parsing, and task queue management.
 
