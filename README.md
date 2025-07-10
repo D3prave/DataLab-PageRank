@@ -11,7 +11,7 @@ This project implements a scalable academic citation crawler powered by the Sema
 - [How to Run](#-how-to-run)
 - [Crawler Script (`crawler.py`)](#-crawlerpy)
 - [Dashboard Script (`dashboard.py`)](#-dashboardpy)
-- [Remove Service Controller Script (`start_stop_crawler.py`)](#-startstopcrawlerpy)
+- [Remove Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
 - [API & Interfaces](#-api--interfaces)
 - [Technologies Used](#-technologies-used)
 - [Architecture](#-architecture)
@@ -102,7 +102,7 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 - speed_background_updater() – updates crawl rate every 15s
 
 ---
-## 🔌 start_stop_crawler.py
+## 🛑 start_stop_crawler.py
 
 This utility script manages the crawler.service systemd unit on multiple remote servers via SSH. It allows you to start or stop the crawler daemon across all instances with a single command.
 
