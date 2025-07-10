@@ -12,6 +12,9 @@ uvicorn[standard]==0.30.0
 asyncpg==0.29.0
 asyncssh==2.14.2
 
+# Start/Stop Crawler
+paramiko==3.4.0
+
 # Optional Dev Tools
 black==24.4.2
 isort==5.13.2
