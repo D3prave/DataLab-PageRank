@@ -1,26 +1,37 @@
-# Core packages
-requests==2.31.0
-redis==5.0.4
-psycopg2-binary==2.9.9
-tenacity==8.2.3
+# Core Dependencies
+requests             # For HTTP requests (e.g., Semantic Scholar API)
+redis                # For Redis queue and Bloom filter handling
+psycopg2-binary      # PostgreSQL client for storing crawled data
+tenacity             # Retry logic (e.g., rate limits)
 
-# FastAPI & ASGI Server
-fastapi==0.111.0
-uvicorn[standard]==0.30.0
+#  Async + Queueing
+asyncpg              # Async PostgreSQL support (used in dashboard)
+asyncssh             # For SSH RAM monitoring on remote servers
 
-# Async packages
-asyncpg==0.29.0
-asyncssh==2.14.2
+# FastAPI Dashboard
+fastapi              # Web dashboard
+uvicorn[standard]    # ASGI server with optional Cython + speedups
 
-# Start/Stop Crawler
-paramiko==3.4.0
+# SSH Control Scripts
+paramiko             # SSH control for remote crawler startup
 
-# Optional Dev Tools
-black==24.4.2
-isort==5.13.2
-python-dotenv==1.0.1  # If you want to use .env for config
+# HPC & Graph Computation
+# graph-tool is not pip-installable. You can use docker:
+# docker pull tiagopeixoto/graph-tool
 
-# Note:
-# RedisBloom module must be installed on your Redis server
-# You can install it via RedisStack or follow instructions here:
-# https://oss.redis.com/redisbloom/Quick_Start/
+# SLURM Note:
+# SLURM is a job scheduler used in HPC clusters, not a Python dependency.
+# Submit your PageRank job via: sbatch your_script.slurm
+
+# Dev Tools (Optional)
+black                # Code formatting
+isort                # Import sorting
+python-dotenv        # For environment variable loading from `.env` files
+
+# RedisBloom Note
+# RedisBloom must be installed on your Redis server (not pip).
+# Either use RedisStack Docker image or follow: https://oss.redis.com/redisbloom/Quick_Start/
+
+# Dependency Management
+# For reproducible builds (Docker/HPC), consider freezing:
+# pip freeze > requirements.lock.txt
