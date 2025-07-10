@@ -244,6 +244,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
 .
 ├── crawler.py
 ├── dashboard.py
+├── fetch_author_papers.py
 ├── requirements.txt
 └── start_stop_crawler.py
 ```
