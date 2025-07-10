@@ -113,7 +113,7 @@ The script uses a dictionary (HOST_KEY_MAP) to map server IPs to their correspon
 HOST_KEY_MAP = {
     "IP": "KEY",
     "IP": "KEY",
-    "IP":   "KEY",
+    "IP": "KEY",
 }
 ```
 Make sure all key files are present and accessible.
