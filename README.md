@@ -12,6 +12,7 @@ This project implements a scalable academic citation crawler powered by the Sema
 - [Crawler Script (`crawler.py`)](#-crawlerpy)
 - [Dashboard Script (`dashboard.py`)](#-dashboardpy)
 - [Remove Service Controller Script (`start_stop_crawler.py`)](#-start_stop_crawlerpy)
+- [Author Paper Fetcher (`fetch_author_papers.py`)](#-fetch_author_paperspy)
 - [API & Interfaces](#-api--interfaces)
 - [Technologies Used](#-technologies-used)
 - [Architecture](#-architecture)
@@ -138,6 +139,23 @@ Remote servers must have:
 Local machine must have:
 - Private SSH key access for each host
 - paramiko installed
+
+---
+
+## 🧾 fetch_author_papers.py
+
+This utility script fetches papers written by specific authors from the Semantic Scholar API. It saves:
+- Detailed metadata in a CSV file (papers_by_authors.csv)
+- Paper IDs only in a plain text file (paper_ids.txt) for seeding the crawler
+
+### How to Use
+
+Edit the author_ids list in the script to include the authors you are interested in:
+```
+author_ids = [
+    "ID1", "ID2", "ID3", ...
+]
+```
 
 ---
 
