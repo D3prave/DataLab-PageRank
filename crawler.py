@@ -14,9 +14,9 @@ from psycopg2 import errors as pg_errors
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 DB_CONFIG = {
-    "dbname":   "",
-    "user":     "",
-    "password": "",
+    "dbname":   "DB_NAME",
+    "user":     "USERNAME",
+    "password": "PASSWORD",
     "host":     "localhost",
     "port":     "5432",
 }
@@ -35,7 +35,7 @@ API_ROOT = "https://api.semanticscholar.org/graph/v1"
 API_BATCH_LIMIT = 100
 REQUEST_TIMEOUT = 30
 MAX_REQUEST_ATTEMPTS = 5
-API_KEY = ""
+API_KEY = "API_KEY"
 
 BATCH_SIZE = API_BATCH_LIMIT
 REF_PAGE_LIMIT = 99
