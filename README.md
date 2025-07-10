@@ -140,7 +140,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
 ---
 
 ## 📐 Architecture
-
+```
    +----------------------------+
    |   Semantic Scholar API     |
    +-------------+--------------+
@@ -170,7 +170,7 @@ Base URL: https://api.semanticscholar.org/graph/v1
         +--------v--------+
         | Web Dashboard   |
         +-----------------+
-
+```
 ---
 
 ## 📁 Project Structure
