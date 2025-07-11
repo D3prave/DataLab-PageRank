@@ -1,6 +1,6 @@
-# Academic Citation Crawler & Dashboard
+# Academic Citation Crawler, Dashboard & PageRank
 
-This project implements a scalable academic citation crawler powered by the Semantic Scholar API. It supports efficient deduplication using RedisBloom, structured storage in PostgreSQL, and real-time monitoring with a FastAPI dashboard, including memory stats from remote instances via SSH.
+A scalable system for collecting academic citation data via the Semantic Scholar API, monitoring crawling performance in real time, and computing PageRank scores on massive citation graphs using high-performance tools like Redis, PostgreSQL, FastAPI, and graph-tool.
 
 ---
 
@@ -23,7 +23,15 @@ This project implements a scalable academic citation crawler powered by the Sema
 
 ## 📌 Overview
 
-This project implements a robust academic crawler to collect citation data via the [Semantic Scholar API](https://api.semanticscholar.org/). The data is processed, stored in PostgreSQL, and de-duplicated using Redis with a Bloom filter. A live dashboard (FastAPI) monitors crawler performance and remote server resources.
+This project implements a full pipeline for crawling and analyzing academic citation data at scale.
+
+At its core is a resilient crawler that retrieves paper metadata and citation relationships from the [Semantic Scholar API](https://api.semanticscholar.org/). It supports queue-based task distribution, deduplication through RedisBloom and PostgreSQL, and robust retry handling with `tenacity`.
+
+To monitor system health and crawling performance, a FastAPI-based dashboard provides real-time stats, including memory usage across remote servers accessed via SSH.
+
+Once the crawl is complete, the system performs large-scale **PageRank analysis** on the resulting citation graph using the `graph-tool` library. This allows users to identify highly influential papers based on citation structure. The PageRank pipeline is designed for use in HPC environments and produces normalized influence scores.
+
+Together, these components form a modular and extensible platform for academic network analysis — from crawling raw citation data to ranking papers by influence.
 
 ---
 
