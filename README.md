@@ -29,7 +29,7 @@ At its core is a resilient crawler that retrieves paper metadata and citation re
 
 To monitor system health and crawling performance, a FastAPI-based dashboard provides real-time stats, including memory usage across remote servers accessed via SSH.
 
-Once the crawl is complete, the system performs large-scale **PageRank analysis** on the resulting citation graph using the `graph-tool` library. This allows users to identify highly influential papers based on citation structure. The PageRank pipeline is designed for use in HPC environments and produces normalized influence scores.
+After the crawl is complete, the system launches a high-performance analysis pipeline on the extracted citation graph and its PageRank scores using HPC resources. We leverage graph-tool for scalable graph algorithms, networkx and scipy for fast network metrics, and pandas for large-scale data manipulation. For visualization and interactive exploration, we integrate pyvis, matplotlib (with optional seaborn styling), and plotly. The PageRank stage runs on a supercomputer, producing normalized influence scores that let users instantly identify the most impactful papers by citation structure.
 
 Together, these components form a modular and extensible platform for academic network analysis — from crawling raw citation data to ranking papers by influence.
 
