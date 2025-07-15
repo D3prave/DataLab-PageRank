@@ -284,7 +284,7 @@ pip install -r requirements.txt
 ├── pagerank_analysis/
 │   ├── full_dataset_citations.ipynb
 │   └── top1500_connected.html
-├── programs/
+├── scripts/
 │   ├── crawler.py
 │   ├── dashboard.py
 │   ├── fetch_author_papers.py
