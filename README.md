@@ -29,9 +29,11 @@ At its core is a resilient crawler that retrieves paper metadata and citation re
 
 To monitor system health and crawling performance, a FastAPI-based dashboard provides real-time stats, including memory usage across remote servers accessed via SSH.
 
-After the crawl is complete, the system launches a high-performance analysis pipeline on the extracted citation graph and its PageRank scores using HPC resources. We leverage graph-tool for scalable graph algorithms, networkx and scipy for fast network metrics, and pandas for large-scale data manipulation. For visualization and interactive exploration, we integrate pyvis, matplotlib (with optional seaborn styling), and plotly. The PageRank stage runs on a supercomputer, producing normalized influence scores that let users instantly identify the most impactful papers by citation structure.
+After the crawl is complete, the system launches a high-performance analysis pipeline on the extracted citation graph and its PageRank scores using HPC resources. We leverage graph-tool for scalable graph algorithms, networkx and scipy for efficient network metrics, and pandas for large-scale data handling. For visualization and interactive exploration, we integrate pyvis, matplotlib (optionally styled with seaborn), and plotly. The PageRank computation runs on a supercomputer, producing normalized influence scores that help users quickly identify the most impactful papers based on citation structure.
 
-Together, these components form a modular and extensible platform for academic network analysis — from crawling raw citation data to ranking papers by influence.
+Additionally, the system includes a custom implementation of the PageRank algorithm using NumPy and sparse matrix operations for improved performance. To validate the algorithm, we extract a small subset of the crawled citation database and compare the output against NetworkX’s built-in PageRank function to ensure correctness. We also evaluate the efficiency of our implementation by measuring and comparing runtime performance with NetworkX.
+
+Together, these components form a modular and extensible platform for academic network analysis — encompassing citation data crawling, custom PageRank computation, and influence-based ranking of papers.
 
 ---
 
