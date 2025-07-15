@@ -285,12 +285,12 @@ pip install -r requirements.txt
 │   ├── full_dataset_citations.ipynb
 │   └── top1500_connected.html
 ├── scripts/
+│   ├── HPC_graph_tool.py
 │   ├── crawler.py
 │   ├── dashboard.py
 │   ├── fetch_author_papers.py
-│   ├── start_stop_crawler.py 
-│   ├── HPC_graph_tool.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── start_stop_crawler.py
 └── README.me
 ```
 
