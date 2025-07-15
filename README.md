@@ -281,12 +281,17 @@ pip install -r requirements.txt
 ## 📁 Project Structure
 ```
 .
-├── crawler.py
-├── dashboard.py
-├── fetch_author_papers.py
-├── start_stop_crawler.py 
-├── HPC_graph_tool.py
-└── requirements.txt
+├── pagerank_analysis/
+│   ├── full_dataset_citations.ipynb
+│   └── top1500_connected.html
+├── programs/
+│   ├── crawler.py
+│   ├── dashboard.py
+│   ├── fetch_author_papers.py
+│   ├── start_stop_crawler.py 
+│   ├── HPC_graph_tool.py
+│   └── requirements.txt
+└── README.me
 ```
 
 ---
