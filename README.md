@@ -286,6 +286,7 @@ pip install -r requirements.txt
 ├── pagerank_analysis/
 │   ├── full_dataset_citations.ipynb
 │   ├── full_dataset_pagerank.ipynb
+│   ├── manual_vs_networkx.ipynb
 │   ├── top1500_connected.html
 │   └── top1500_pagerank_connected.html
 ├── scripts/
