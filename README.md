@@ -7,6 +7,7 @@ A scalable system for collecting academic citation data via the Semantic Scholar
 ## 📚 Table of Contents
 
 - [📌 Overview](#-overview)
+- [💾 Prerequisite](#-prerequisite)
 - [✨ Features](#-features)
 - [🕷 Crawler Script (`crawler.py`)](#-crawlerpy)
 - [📊 Dashboard Script (`dashboard.py`)](#-dashboardpy)
@@ -34,6 +35,14 @@ After the crawl is complete, the system launches a high-performance analysis pip
 Additionally, the system includes a custom implementation of the PageRank algorithm using NumPy and sparse matrix operations for improved performance. To validate the algorithm, we extract a small subset of the crawled citation database and compare the output against NetworkX’s built-in PageRank function to ensure correctness. We also evaluate the efficiency of our implementation by measuring and comparing runtime performance with NetworkX.
 
 Together, these components form a modular and extensible platform for academic network analysis — encompassing citation data crawling, custom PageRank computation, and influence-based ranking of papers.
+
+---
+
+## 💾 Prerequisite
+
+Before running the crawler, make sure:
+- PostgreSQL is running and a database is created.
+- Redis server is running and Bloom filter module is available.
 
 ---
 
