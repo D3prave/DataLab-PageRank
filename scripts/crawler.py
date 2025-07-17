@@ -225,9 +225,11 @@ def main(seeds=None, fresh=False, resume=False):
     sess = requests.Session()
     sess.headers.update({"x-api-key": API_KEY})
 
+    # Create tables before any operation
     with DB_POOL.getconn() as conn:
         cur = conn.cursor()
         init_db(cur)
+        conn.commit()
         cur.close()
         DB_POOL.putconn(conn)
 
@@ -338,6 +340,7 @@ def main(seeds=None, fresh=False, resume=False):
             DB_POOL.putconn(conn)
 
     print("[INFO] Shutdown complete.")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
