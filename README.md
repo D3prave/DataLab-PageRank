@@ -4,6 +4,10 @@ A scalable system for collecting academic citation data via the Semantic Scholar
 
 ---
 
+![MIDS Sommerfest Poster](./MIDS_Poster.png)
+
+---
+
 ## 📚 Table of Contents
 
 - [📌 Overview](#-overview)
